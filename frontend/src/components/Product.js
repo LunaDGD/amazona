@@ -1,28 +1,54 @@
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
-import Rating from './Rating';
-function Product(props) {
-  const { product } = props;
-  return (
-    <Card>
-      <Link to={`/products/${product.slug}`}>
-        <img src={product.image} alt={product.name} className="card-img-top" />
-      </Link>
-      <Card.Body>
-        <Link to={`/products/${product.slug}`}>
-          <Card.Title>{product.name}</Card.Title>
-        </Link>
-        <Rating rating={product.rating} numReviews={product.numReviews} />
+import { Card } from 'react-bootstrap';
 
-        <Card.Text>${product.price}</Card.Text>
-        <Button>Add to cart</Button>
+const Products = ({ product }) => {
+  return (
+    <Card className="my-3 p-3" rounded>
+      <a href={`/products/${product.id}`}>
+        <Card.Img src={product.image} variant="top" />
+      </a>
+      <Card.Body>
+        <a href={`/products/${product.id}`}>
+          <Card.Title as="div">
+            <strong>{product.name}</strong>
+          </Card.Title>
+        </a>
+        <Card.Text as="div">
+          <div className="my-3">
+            <h3>{product.price}</h3>
+          </div>
+        </Card.Text>
       </Card.Body>
     </Card>
   );
-}
+};
 
-export default Product;
+export default Products;
+
+// import Card from 'react-bootstrap/Card';
+// import Button from 'react-bootstrap/Button';
+// import { Link } from 'react-router-dom';
+// import Rating from './Rating';
+// function Product({ product }) {
+//     const { product } = props;
+//   return (
+//     <Card>
+//       <Link to={`/products/${product.slug}`}>
+//         <img src={product.image} alt={product.name} className="card-img-top" />
+//       </Link>
+//       <Card.Body>
+//         <Link to={`/products/${product.slug}`}>
+//           <Card.Title>{product.name}</Card.Title>
+//         </Link>
+//         <Rating rating={product.rating} numReviews={product.numReviews} />
+
+//         <Card.Text>${product.price}</Card.Text>
+//         <Button>Add to cart</Button>
+//       </Card.Body>
+//     </Card>
+//   );
+// }
+
+// export default Product;
 
 // const Products = ({ product }) => {
 //   return (

@@ -28,9 +28,6 @@ app.get('/api/products/:id', (req, res) => {
 });
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`serve at http://localhost:${port}`);
-});
 
 // establish mysql connection and api
 const db = mysql.createConnection({
@@ -52,4 +49,7 @@ app.get('/api/shop', (req, res) => {
     }
     res.status(200).json(result);
   });
+});
+app.listen(port, () => {
+  console.log(`serve at http://localhost:${port}`);
 });

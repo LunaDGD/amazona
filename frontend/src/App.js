@@ -9,7 +9,8 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { useContext } from 'react';
 import { Store } from './Store';
 import CartScreen from './screens/CartScreen';
-import Footer2 from './components/Footer';
+import Footer from './components/Footer';
+import Shop from './screens/Shop';
 
 function App() {
   const { state } = useContext(Store);
@@ -42,10 +43,14 @@ function App() {
               <Route path="/products/:slug" element={<ProductScreen />} />
               <Route path="/cart" element={<CartScreen />} />
               <Route path="/" element={<HomeScreen />} />
+              <Route path="/shop" element={<Shop />} />
             </Routes>
           </Container>
         </main>
-        {/* <Footer2 /> */}
+        {/* <Footer /> */}
+        <footer>
+          <div className="text-center">All rights reserved</div>
+        </footer>
       </div>
     </BrowserRouter>
   );
