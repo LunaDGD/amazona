@@ -25,6 +25,9 @@ function App() {
                 <Navbar.Brand>PC Parts</Navbar.Brand>
               </LinkContainer>
               <Nav className="me-auto">
+                <Link to="/shop" className="nav-link">
+                  Shop
+                </Link>
                 <Link to="/cart" className="nav-link">
                   Cart
                   {cart.cartItems.length > 0 && (
