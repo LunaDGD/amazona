@@ -8,6 +8,10 @@ import Product from '../components/Product';
 import { Helmet } from 'react-helmet-async';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import CarouselFadeExample from '../components/CarouselFadeExample';
+import Gallery from '../components/ImgGallery/Gallery';
+import { ChakraProvider } from '@chakra-ui/react';
+
 //
 
 const reducer = (state, action) => {
@@ -29,6 +33,7 @@ function HomeScreen() {
     loading: true,
     error: '',
   });
+
   //   const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -48,8 +53,11 @@ function HomeScreen() {
       <Helmet>
         <title>PC Parts</title>
       </Helmet>
-      <h1>Featured Products</h1>
-      <div className="products">
+      <CarouselFadeExample />
+      <Gallery />
+      {/* <h1>Featured Products</h1> */}
+
+      {/* <div className="products">
         {loading ? (
           <LoadingBox />
         ) : error ? (
@@ -63,7 +71,7 @@ function HomeScreen() {
             ))}
           </Row>
         )}
-      </div>
+      </div> */}
     </div>
   );
 }

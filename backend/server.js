@@ -39,7 +39,7 @@ const db = mysql.createConnection({
 });
 db.connect((err) => {
   if (err) throw err;
-  console.log('connect to db');
+  console.log('connected to db');
 });
 //grabs db data and gives it as json object
 app.get('/api/shop', (req, res) => {
@@ -48,6 +48,22 @@ app.get('/api/shop', (req, res) => {
       throw err;
     }
     res.status(200).json(result);
+    console.log(result);
+  });
+});
+app.get('/low', (req, res) => {
+  db.query('SELECT * FROM products Order by price ASC', (err, results) => {
+    if (err) {
+      console.log(err);
+    } else res.send(results);
+  });
+});
+
+app.get('/high', (req, res) => {
+  db.query('SELECT * FROM products Order by price DESC', (err, results) => {
+    if (err) {
+      console.log(err);
+    } else res.send(results);
   });
 });
 app.listen(port, () => {

@@ -1,5 +1,7 @@
 body {
   margin: 0;
+  padding: 0;
+  background-color: currentColor !important;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -11,7 +13,6 @@ body {
 }
 main {
   flex: 1;
-  padding-bottom: 500px;
 }
 
 .products {
@@ -38,6 +39,12 @@ img.card-img-top {
 }
 .img-thumbnail {
   height: 80px;
+}
+.chakra-heading {
+  color: lightgray;
+}
+Input {
+  color: white !important;
 }
 /* Footer */
 /* footer {
