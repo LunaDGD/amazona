@@ -1,5 +1,6 @@
 # Getting Started with Create React App
 
+"proxy": "http://127.0.0.1:3000",
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

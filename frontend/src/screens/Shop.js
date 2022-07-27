@@ -8,29 +8,38 @@ import { Helmet } from 'react-helmet-async';
 function Shop() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    const fetchProducts = async () => {
-      const { data } = await axios.get('/api/shop');
-      setProducts(data);
-    };
-    fetchProducts();
+    axios
+      .get('https://react-backend12.herokuapp.com/api/shop')
+      .then((response) => {
+        setProducts(response.data);
+      });
   }, []);
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     const { data } = await axios.get('/api/shop');
+  //     setProducts(data);
+  //   };
+  //   fetchProducts();
+  // }, []);
   const filterLow = () => {
-    axios.get('/low').then((response) => {
+    axios.get('https://react-backend12.herokuapp.com/low').then((response) => {
       console.log(response);
       setProducts(response.data);
     });
   };
   const filterHigh = () => {
-    axios.get('/high').then((response) => {
+    axios.get('https://react-backend12.herokuapp.com/high').then((response) => {
       console.log(response);
       setProducts(response.data);
     });
   };
   const filterNormal = () => {
-    axios.get('/api/shop').then((response) => {
-      console.log(response);
-      setProducts(response.data);
-    });
+    axios
+      .get('https://react-backend12.herokuapp.com/api/shop')
+      .then((response) => {
+        console.log(response);
+        setProducts(response.data);
+      });
   };
 
   const onChange = (x) => {

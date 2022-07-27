@@ -1,8 +1,10 @@
 import express from 'express';
 import data from './data.js';
 import mysql from 'mysql';
+import cors from 'cors';
 
 const app = express();
+app.use(cors());
 // test
 app.get('/api/products', (req, res) => {
   res.send(data.products);
@@ -27,8 +29,18 @@ app.get('/api/products/:id', (req, res) => {
   }
 });
 
-const port = process.env.PORT || 3000;
+// const port = process.env.PORT || 3001;
+// heroku domain url
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, (err) => {
+  if (err) throw err;
+  console.log(`Server running at ${PORT}`);
+});
 
+// const port = 'https://react-backend12.herokuapp.com/';
+// app.listen(port, () => {
+//   console.log(`serve at http://localhost:${port}`);
+// });
 // establish mysql connection and api
 const db = mysql.createConnection({
   host: 'ecom.czv82qqakxds.us-east-1.rds.amazonaws.com',
@@ -37,6 +49,7 @@ const db = mysql.createConnection({
   password: 'password',
   database: 'ecommerce',
 });
+
 db.connect((err) => {
   if (err) throw err;
   console.log('connected to db');
@@ -65,7 +78,4 @@ app.get('/high', (req, res) => {
       console.log(err);
     } else res.send(results);
   });
-});
-app.listen(port, () => {
-  console.log(`serve at http://localhost:${port}`);
 });
